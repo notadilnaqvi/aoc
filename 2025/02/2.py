@@ -1,3 +1,5 @@
+import re
+
 def read_from_file(file: str):
   data = None
   with open(file) as f:
@@ -6,12 +8,15 @@ def read_from_file(file: str):
 
 def check_validity(id: int):
   id_str = str(id)
-  # odd number of digits are always valid
-  if len(id_str) % 2 != 0:
-    return True
+
+  return not bool(re.fullmatch(r"(.+)\1+", id_str))
+
+  # # number with odd digits will only be invalid if all digits are the same
+  # if len(id_str) % 2 != 0:
+  #   return len(list(set(id_str))) != 1
   
-  first_half, second_half = id_str[:len(id_str)//2], id_str[len(id_str)//2:]
-  return first_half != second_half
+  # first_half, second_half = id_str[:len(id_str)//2], id_str[len(id_str)//2:]
+  # return first_half != second_half
 
 def solve(file_path: str) -> None:
   file_contents = read_from_file(file_path)
