@@ -27,7 +27,7 @@ def solve(file_path: str) -> None:
   accessible_by_forklift = 0
   for y, row in enumerate(rows):
     for x, col in enumerate(row):
-      if (col != '@'):
+      if col != '@':
         continue
       neighbours = []
       for dir in dirs:
@@ -43,4 +43,4 @@ def solve(file_path: str) -> None:
 
   print(accessible_by_forklift)
 
-solve('input.txt')
+solve('sample.txt')
