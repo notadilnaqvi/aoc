@@ -19,8 +19,6 @@ def solve(file_path: str) -> None:
 
   widths = [len(match) if i == len(matches)-1 else len(match)-1 for i, match in enumerate(matches)]
 
-
-
   proplems = []
   for row in rows:
     pointer = 0
@@ -48,7 +46,7 @@ def solve(file_path: str) -> None:
     elif operation == "+":
       ans = sum(new_numbers)
     else:
-      raise "invalid operation"
+      raise Exception("invalid operation")
     
     answers_sum += ans
 
