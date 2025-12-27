@@ -8,7 +8,6 @@ def solve(file_path: str) -> None:
   file_contents = read_from_file(file_path)
 
   battery_banks = file_contents.split('\n')
-  # print("bank:", battery_banks)
   total_joltage = 0
 
   for batter_bank in battery_banks:
@@ -16,9 +15,6 @@ def solve(file_path: str) -> None:
     max_battery_1 = max(batteries)
     batteries_right_of_max = batteries[batteries.index(max(batteries)) + 1:]
     batteries_left_of_max = batteries[:batteries.index(max(batteries))]
-    # print("bank:", batter_bank)
-    # print("right:", ''.join(map(str,batteries_right_of_max)))
-    # print("left:", ''.join(map(str,batteries_left_of_max)))
 
     max_battery_2 = None
     max_joltage = None
@@ -30,7 +26,6 @@ def solve(file_path: str) -> None:
       max_battery_2 = max(batteries_right_of_max)
       max_joltage = int(str(max_battery_1) + str(max_battery_2))
     
-    # print('max joltage: ', max_joltage)
     total_joltage += max_joltage
 
   print(total_joltage)
